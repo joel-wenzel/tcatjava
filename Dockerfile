@@ -1,2 +1,2 @@
 FROM eugeneflexagon/adftomcat
-COPY ../artifacts/tcatapp.war /usr/local/tomcat/webapps
+COPY tcatapp.war /usr/local/tomcat/webapps
