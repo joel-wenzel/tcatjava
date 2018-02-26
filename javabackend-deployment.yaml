@@ -20,7 +20,7 @@ spec:
         run: olympics-javabackend
     spec:
       containers:
-      - image: $DOCKER_IMAGE_NAME:$FD_PROJECT_VERSION
+      - image: ${{DOCKER_IMAGE_NAME}}:${{FD_PROJECT_VERSION}}
         imagePullPolicy: Always
         name: olympics-javabackend
         ports:
