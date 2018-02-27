@@ -24,7 +24,7 @@ spec:
         imagePullPolicy: Always
         name: olympics-javabackend
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
           protocol: TCP
       imagePullSecrets:
       - name: wrelease
@@ -40,5 +40,5 @@ spec:
     run: olympics-javabackend
   ports:
     - port: 8088
-      targetPort: 3000
+      targetPort: 8080
   type: ClusterIP
