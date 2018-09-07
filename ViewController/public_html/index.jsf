@@ -2,8 +2,42 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <af:document title="main.jsf" id="d1">
+    <af:messages id="m1"/>
     <af:form id="f1">
       <af:outputText value="Hello world!" id="ot2"/>
+      <af:table value="#{bindings.MedalsVO.collectionModel}" var="row" rows="#{bindings.MedalsVO.rangeSize}" emptyText="#{bindings.MedalsVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" fetchSize="#{bindings.MedalsVO.rangeSize}" id="t1">
+        <af:column headerText="#{bindings.MedalsVO.hints.Countryid.label}" id="c1">
+          <af:inputText value="#{row.bindings.Countryid.inputValue}" label="#{bindings.MedalsVO.hints.Countryid.label}" required="#{bindings.MedalsVO.hints.Countryid.mandatory}"
+                        columns="#{bindings.MedalsVO.hints.Countryid.displayWidth}" maximumLength="#{bindings.MedalsVO.hints.Countryid.precision}"
+                        shortDesc="#{bindings.MedalsVO.hints.Countryid.tooltip}" id="it1">
+            <f:validator binding="#{row.bindings.Countryid.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column headerText="#{bindings.MedalsVO.hints.Gold.label}" id="c2">
+          <af:inputText value="#{row.bindings.Gold.inputValue}" label="#{bindings.MedalsVO.hints.Gold.label}" required="#{bindings.MedalsVO.hints.Gold.mandatory}"
+                        columns="#{bindings.MedalsVO.hints.Gold.displayWidth}" maximumLength="#{bindings.MedalsVO.hints.Gold.precision}" shortDesc="#{bindings.MedalsVO.hints.Gold.tooltip}" id="it2">
+            <f:validator binding="#{row.bindings.Gold.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.MedalsVO.hints.Gold.format}"/>
+          </af:inputText>
+        </af:column>
+        <af:column headerText="#{bindings.MedalsVO.hints.Silver.label}" id="c3">
+          <af:inputText value="#{row.bindings.Silver.inputValue}" label="#{bindings.MedalsVO.hints.Silver.label}" required="#{bindings.MedalsVO.hints.Silver.mandatory}"
+                        columns="#{bindings.MedalsVO.hints.Silver.displayWidth}" maximumLength="#{bindings.MedalsVO.hints.Silver.precision}" shortDesc="#{bindings.MedalsVO.hints.Silver.tooltip}"
+                        id="it3">
+            <f:validator binding="#{row.bindings.Silver.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.MedalsVO.hints.Silver.format}"/>
+          </af:inputText>
+        </af:column>
+        <af:column headerText="#{bindings.MedalsVO.hints.Bronze.label}" id="c4">
+          <af:inputText value="#{row.bindings.Bronze.inputValue}" label="#{bindings.MedalsVO.hints.Bronze.label}" required="#{bindings.MedalsVO.hints.Bronze.mandatory}"
+                        columns="#{bindings.MedalsVO.hints.Bronze.displayWidth}" maximumLength="#{bindings.MedalsVO.hints.Bronze.precision}" shortDesc="#{bindings.MedalsVO.hints.Bronze.tooltip}"
+                        id="it4">
+            <f:validator binding="#{row.bindings.Bronze.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.MedalsVO.hints.Bronze.format}"/>
+          </af:inputText>
+        </af:column>
+      </af:table>
       <af:button text="button 2" id="b2"/>
       <af:button text="button 1" id="b1"/>
     </af:form>
