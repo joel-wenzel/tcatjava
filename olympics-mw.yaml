@@ -15,7 +15,7 @@ spec:
         run: olympics-mw
     spec:
       containers:
-      - image: eugeneflexagon/olympics-mw
+      - image: ${{DOCKER_IMAGE}}:${{FD_PROJECT_VERSION}}
         env:
         - name: OLYMPICS_DB_URL
           value: "jdbc:oracle:thin:@olympics-db-svc:1521:XE"
