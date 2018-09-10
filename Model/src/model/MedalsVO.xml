@@ -8,9 +8,13 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="model.MedalsVORowImpl"
+  ComponentClass="model.MedalsVOImpl">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -18,7 +22,8 @@
         ResId="model.MedalsVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[select * from fd.medals]]></SQLQuery>
+  <SQLQuery><![CDATA[select CountryID, Gold, Silver, Bronze, CountryName 
+from fd.medals]]></SQLQuery>
   <ViewAttribute
     Name="Countryid"
     IsUpdateable="false"
@@ -45,7 +50,7 @@
     ColumnType="NUMBER"
     AliasName="GOLD"
     Expression="GOLD"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="Silver"
     IsUpdateable="false"
@@ -57,7 +62,7 @@
     ColumnType="NUMBER"
     AliasName="SILVER"
     Expression="SILVER"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="Bronze"
     IsUpdateable="false"
@@ -69,7 +74,25 @@
     ColumnType="NUMBER"
     AliasName="BRONZE"
     Expression="BRONZE"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
+  <ViewAttribute
+    Name="Countryname"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COUNTRYNAME"
+    Expression="COUNTRYNAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Countryid"/>
+  </AttrArray>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

@@ -1,0 +1,39 @@
+
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: olympics-mw
+  namespace: efedorenko
+  labels:
+    run: olympics-mw
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: olympics-mw
+    spec:
+      containers:
+      - image: eugeneflexagon/olympics-mw
+        env:
+        - name: OLYMPICS_DB_URL
+          value: "jdbc:oracle:thin:@olympics-db-svc:1521:XE"
+        imagePullPolicy: Always
+        name: olympics-mw
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: olympics-mw-svc
+  namespace: efedorenko
+spec:
+  selector:
+    run: olympics-mw
+  ports:
+    - port: 8088
+      targetPort: 8080
+  type: NodePort

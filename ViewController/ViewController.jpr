@@ -167,6 +167,14 @@
                         <string v="ADF Faces Runtime 11"/>
                         <string v="ADF Web Runtime"/>
                         <string v="Apache Http Components"/>
+                        <string v="MDS Runtime"/>
+                        <string v="MDS Runtime Dependencies"/>
+                        <string v="ADF Model Runtime"/>
+                        <string v="BC4J Runtime"/>
+                        <string v="BC4J Security"/>
+                        <string v="Oracle JDBC"/>
+                        <string v="BC4J Oracle Domains"/>
+                        <string v="Resource Bundle Support"/>
                      </list>
                      <value n="targetWithinJar" v="WEB-INF/lib"/>
                      <value n="type" v="3"/>

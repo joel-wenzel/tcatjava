@@ -150,14 +150,15 @@
   <listener>
     <listener-class>oracle.adf.mbean.share.config.ADFConfigLifeCycleCallBack</listener-class>
   </listener>
-  -->
-  <welcome-file-list>
-    <welcome-file>/index.html</welcome-file>
-  </welcome-file-list>
   <listener>
     <listener-class>oracle.adf.mbean.share.config.ADFConfigLifeCycleCallBack</listener-class>
   </listener>
   <listener>
     <listener-class>oracle.adf.mbean.share.connection.ADFConnectionLifeCycleCallBack</listener-class>
   </listener>
+  
+  -->
+  <welcome-file-list>
+    <welcome-file>/index.html</welcome-file>
+  </welcome-file-list>
 </web-app>

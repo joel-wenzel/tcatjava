@@ -6,8 +6,35 @@
   Name="AppModule"
   Version="12.1.3.10.47"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="model.AppModuleImpl"
+  ComponentInterface="model.common.AppModule">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewUsage
     Name="MedalsVO"
     ViewObjectName="model.MedalsVO"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="getLong"
+      MethodName="getLong">
+      <Return
+        Name="_return_type_"
+        Type="long"/>
+    </Method>
+    <Method
+      Name="getMedals"
+      MethodName="getMedals">
+      <Return
+        Name="_return_type_"
+        Type="java.util.List"
+        IsGeneric="true">
+        <Element
+          Name="Row"
+          Type="oracle.jbo.Row"/>
+      </Return>
+    </Method>
+  </ClientInterface>
 </AppModule>
