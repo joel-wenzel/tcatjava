@@ -7,6 +7,7 @@ metadata:
   namespace: efedorenko
   labels:
     run: olympics-mw
+    delta: a
 spec:
   replicas: 1
   template:
@@ -15,7 +16,7 @@ spec:
         run: olympics-mw
     spec:
       containers:
-      - image: ${{DOCKER_IMAGE}}:latest
+      - image: eugeneflexagon/olympics-mw:latest
         env:
         - name: OLYMPICS_DB_URL
           value: "jdbc:oracle:thin:@olympics-db-svc:1521:XE"
