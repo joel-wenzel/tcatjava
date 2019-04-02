@@ -1,0 +1,39 @@
+
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ .Values.deployment.name }}"
+  namespace: "{{ .Values.namespace }}"
+  labels:
+    run: "{{ .Values.deployment.name }}"
+spec:
+  replicas: "{{ .Values.replicas }}"
+  template:
+    metadata:
+      labels:
+        run: "{{ .Values.deployment.name }}"
+    spec:
+      containers:
+      - image: "{{ .Values.image.name }}"
+        env:
+        - name: OLYMPICS_DB_URL
+          value: "{{ .Values.jdbc.url }}"
+        imagePullPolicy: Always
+        name: olympics-mw
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: olympics-mw-svc
+  namespace: efedorenko
+spec:
+  selector:
+    run: olympics-mw
+  ports:
+    - port: 8088
+      targetPort: 8080
+  type: ClusterIP
