@@ -1,2 +1,3 @@
 FROM eugeneflexagon/adftomcat:2.0
-COPY ../artifacts/tcatapp.war /usr/local/tomcat/webapps/
+RUN shopt -s globstar
+RUN cp **/*.war /usr/local/tomcat/webapps/
