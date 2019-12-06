@@ -6,7 +6,7 @@ metadata:
   name: ${{FD_KN_DEPLOYMENT_NAME}}
   namespace: efedorenko
   labels:
-    run: olympics-mw
+    run: olympics
 spec:
   replicas: 1
   template:
@@ -15,7 +15,7 @@ spec:
         app: olympics
         fd_deployment_name: ${{FD_KN_DEPLOYMENT_NAME}}
         fd_app_name: SpringBoot
-        run: olympics-mw
+        run: olympics
     spec:
       containers:
       - image: ${{FD_PROJECT_DOCKER_IMAGE_NAME}}
@@ -23,7 +23,7 @@ spec:
         - name: OLYMPICS_DB_URL
           value: "jdbc:oracle:thin:@olympics-db-svc:1521:XE"
         imagePullPolicy: Always
-        name: olympics-mw
+        name: olympics
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -31,11 +31,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: olympics-mw-svc
+  name: olympics
   namespace: efedorenko
 spec:
   selector:
-    run: olympics-mw
+    run: olympics
   ports:
     - port: 8088
       targetPort: 8080
